@@ -3,10 +3,12 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  OneToMany,
 } from "typeorm";
+import { Contact } from "./contactsEntity";
 
-@Entity()
-export class Users {
+@Entity("users")
+export class User {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
@@ -27,4 +29,7 @@ export class Users {
 
   @CreateDateColumn()
   createdAt: Date;
+
+  @OneToMany(() => Contact, (contact) => contact.user)
+  contacts: Contact[];
 }
