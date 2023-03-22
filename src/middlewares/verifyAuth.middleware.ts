@@ -4,6 +4,7 @@ import { AppError } from "../errors/error";
 import { verify } from "jsonwebtoken";
 import { AppDataSource } from "../data-source";
 import { User } from "../entities/usersEntity";
+import { IUserInRequest } from "../interfaces/users";
 
 export const verifyAuthMiddleware = async (
   req: Request,
@@ -20,18 +21,16 @@ export const verifyAuthMiddleware = async (
 
   const sercretKey: string = process.env.SECRET_KEY!;
 
-  verify(token, sercretKey, async (error, decoded) => {
+  verify(token, sercretKey, (error, decoded) => {
     if (error) {
       throw new AppError(error.message, 401);
     }
 
     const id: string = decoded!.sub as string;
 
-    const user = await AppDataSource.getRepository(User).findOneBy({
+    req.user = {
       id: id,
-    });
-
-    req.user = user!;
+    };
   });
 
   return next();

@@ -23,3 +23,7 @@ export interface ILoginBody {
 export interface ILoginResponse {
   token: string;
 }
+
+export interface IUserInRequest {
+  id: string | undefined;
+}

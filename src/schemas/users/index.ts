@@ -21,3 +21,6 @@ export const createUserResponseSchema: yup.Schema<ICreateUserResponse> = yup
     first_name: yup.string().required(),
     id: yup.string().required(),
   });
+
+export const usersArraySchema: yup.Schema<ICreateUserResponse[] | undefined> =
+  yup.array(createUserResponseSchema);

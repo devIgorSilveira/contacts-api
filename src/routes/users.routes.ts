@@ -1,7 +1,11 @@
 import { Router } from "express";
-import { createUserController } from "../controllers";
-import { validateBodyPerSchemaMiddleware } from "../middlewares";
+import { createUserController, listAllUsersController } from "../controllers";
+import {
+  validateBodyPerSchemaMiddleware,
+  verifyAuthMiddleware,
+} from "../middlewares";
 import { createUserBodySchema } from "../schemas/users";
+
 export const usersRouter = Router();
 
 usersRouter.post(
@@ -9,3 +13,5 @@ usersRouter.post(
   validateBodyPerSchemaMiddleware(createUserBodySchema),
   createUserController
 );
+
+usersRouter.get("", verifyAuthMiddleware, listAllUsersController);
