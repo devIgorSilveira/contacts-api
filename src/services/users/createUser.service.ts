@@ -10,6 +10,12 @@ export const CreateUserService = async (
 ): Promise<ICreateUserResponse> => {
   const userRepo = AppDataSource.getRepository(User);
 
+  const isExistsEmail = await userRepo.findOneBy({ email: body.email });
+
+  if (isExistsEmail) {
+    throw new AppError("Email already registered", 409);
+  }
+
   body.password = await hash(body.password, 10);
   const user = await userRepo.save(body);
 
