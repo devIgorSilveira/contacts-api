@@ -1,5 +1,9 @@
 import { Router } from "express";
-import { createUserController, listAllUsersController } from "../controllers";
+import {
+  createUserController,
+  getUserByIdController,
+  listAllUsersController,
+} from "../controllers";
 import {
   validateBodyPerSchemaMiddleware,
   verifyAuthMiddleware,
@@ -15,3 +19,5 @@ usersRouter.post(
 );
 
 usersRouter.get("", verifyAuthMiddleware, listAllUsersController);
+
+usersRouter.get("/:id", verifyAuthMiddleware, getUserByIdController);
