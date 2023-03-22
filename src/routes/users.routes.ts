@@ -6,6 +6,7 @@ import {
 } from "../controllers";
 import {
   validateBodyPerSchemaMiddleware,
+  validateUserIdParamMiddleware,
   verifyAuthMiddleware,
 } from "../middlewares";
 import { createUserBodySchema } from "../schemas/users";
@@ -20,4 +21,9 @@ usersRouter.post(
 
 usersRouter.get("", verifyAuthMiddleware, listAllUsersController);
 
-usersRouter.get("/:id", verifyAuthMiddleware, getUserByIdController);
+usersRouter.get(
+  "/:id",
+  verifyAuthMiddleware,
+  validateUserIdParamMiddleware,
+  getUserByIdController
+);
