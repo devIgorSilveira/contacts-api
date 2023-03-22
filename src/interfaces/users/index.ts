@@ -14,3 +14,12 @@ export interface ICreateUserResponse {
   phone: string;
   createdAt: Date;
 }
+
+export interface ILoginBody {
+  email: string;
+  password: string;
+}
+
+export interface ILoginResponse {
+  token: string;
+}

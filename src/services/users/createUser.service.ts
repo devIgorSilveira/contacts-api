@@ -5,7 +5,7 @@ import { ICreateUserBody, ICreateUserResponse } from "../../interfaces/users";
 import { createUserResponseSchema } from "../../schemas/users";
 import { AppError } from "../../errors/error";
 
-export const CreateUserService = async (
+export const createUserService = async (
   body: ICreateUserBody
 ): Promise<ICreateUserResponse> => {
   const userRepo = AppDataSource.getRepository(User);
