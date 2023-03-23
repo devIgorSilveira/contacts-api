@@ -1,4 +1,5 @@
 import { createContactController } from "./contacts/createContact.controller";
+import { deleteContactController } from "./contacts/deleteContact.controller";
 import { getContactByIdController } from "./contacts/getContactById.controller";
 import { listAllContactsOfAUserController } from "./contacts/listAllContactsOfAUser.controller";
 import { patchContactController } from "./contacts/patchContact.controller";
@@ -20,4 +21,5 @@ export {
   listAllContactsOfAUserController,
   getContactByIdController,
   patchContactController,
+  deleteContactController,
 };

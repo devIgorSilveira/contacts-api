@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   createContactController,
+  deleteContactController,
   getContactByIdController,
   listAllContactsOfAUserController,
   patchContactController,
@@ -39,4 +40,11 @@ contactRouter.patch(
   validateContactIdParamMiddleware,
   validateBodyPerSchemaMiddleware(PatchContactBodySchema),
   patchContactController
+);
+
+contactRouter.delete(
+  "/:id",
+  verifyAuthMiddleware,
+  validateContactIdParamMiddleware,
+  deleteContactController
 );
