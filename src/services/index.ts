@@ -1,6 +1,7 @@
 import { createContactService } from "./contacts/createContact.service";
 import { getContactByIdService } from "./contacts/getContactById.service";
 import { listAllContactsOfAUserService } from "./contacts/listAllContactsOfAUser.service";
+import { patchContactService } from "./contacts/patchContact.service";
 import { createSessionService } from "./sessions/createSession.service";
 import { createUserService } from "./users/createUser.service";
 import { deleteUserService } from "./users/deleteUser.service";
@@ -18,4 +19,5 @@ export {
   createContactService,
   listAllContactsOfAUserService,
   getContactByIdService,
+  patchContactService,
 };

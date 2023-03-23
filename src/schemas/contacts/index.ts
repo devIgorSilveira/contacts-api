@@ -3,6 +3,7 @@ import {
   ICreateContactBody,
   IContactResponse,
   IContactWithoutUserResponse,
+  IPatchContactBody,
 } from "../../interfaces/contacts";
 import { createUserResponseSchema } from "../users";
 
@@ -40,3 +41,12 @@ export const contactResponseWithoutUSerSchema: yup.Schema<IContactWithoutUserRes
 export const contactArraySchema: yup.Schema<
   IContactWithoutUserResponse[] | undefined
 > = yup.array(contactResponseWithoutUSerSchema);
+
+export const PatchContactBodySchema: yup.Schema<IPatchContactBody> = yup
+  .object()
+  .shape({
+    first_name: yup.string().max(127),
+    last_name: yup.string().max(127),
+    email: yup.string().email().max(127),
+    phone: yup.string().min(11).max(11),
+  });

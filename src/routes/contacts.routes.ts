@@ -3,13 +3,17 @@ import {
   createContactController,
   getContactByIdController,
   listAllContactsOfAUserController,
+  patchContactController,
 } from "../controllers";
 import {
   validateBodyPerSchemaMiddleware,
   validateContactIdParamMiddleware,
   verifyAuthMiddleware,
 } from "../middlewares";
-import { createContactBodySchema } from "../schemas/contacts";
+import {
+  createContactBodySchema,
+  PatchContactBodySchema,
+} from "../schemas/contacts";
 
 export const contactRouter = Router();
 
@@ -27,4 +31,12 @@ contactRouter.get(
   verifyAuthMiddleware,
   validateContactIdParamMiddleware,
   getContactByIdController
+);
+
+contactRouter.patch(
+  "/:id",
+  verifyAuthMiddleware,
+  validateContactIdParamMiddleware,
+  validateBodyPerSchemaMiddleware(PatchContactBodySchema),
+  patchContactController
 );

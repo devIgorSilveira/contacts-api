@@ -25,3 +25,10 @@ export interface IContactWithoutUserResponse {
   phone: string;
   createdAt: Date;
 }
+
+export interface IPatchContactBody {
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+}
