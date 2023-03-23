@@ -1,10 +1,12 @@
 import { Router } from "express";
 import {
   createContactController,
+  getContactByIdController,
   listAllContactsOfAUserController,
 } from "../controllers";
 import {
   validateBodyPerSchemaMiddleware,
+  validateContactIdParamMiddleware,
   verifyAuthMiddleware,
 } from "../middlewares";
 import { createContactBodySchema } from "../schemas/contacts";
@@ -19,3 +21,10 @@ contactRouter.post(
 );
 
 contactRouter.get("", verifyAuthMiddleware, listAllContactsOfAUserController);
+
+contactRouter.get(
+  "/:id",
+  verifyAuthMiddleware,
+  validateContactIdParamMiddleware,
+  getContactByIdController
+);
