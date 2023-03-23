@@ -3,13 +3,14 @@ import {
   createUserController,
   getUserByIdController,
   listAllUsersController,
+  patchUserController,
 } from "../controllers";
 import {
   validateBodyPerSchemaMiddleware,
   validateUserIdParamMiddleware,
   verifyAuthMiddleware,
 } from "../middlewares";
-import { createUserBodySchema } from "../schemas/users";
+import { createUserBodySchema, PatchUserBodySchema } from "../schemas/users";
 
 export const usersRouter = Router();
 
@@ -26,4 +27,12 @@ usersRouter.get(
   verifyAuthMiddleware,
   validateUserIdParamMiddleware,
   getUserByIdController
+);
+
+usersRouter.patch(
+  "/:id",
+  verifyAuthMiddleware,
+  validateUserIdParamMiddleware,
+  validateBodyPerSchemaMiddleware(PatchUserBodySchema),
+  patchUserController
 );

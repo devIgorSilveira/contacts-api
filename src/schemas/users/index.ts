@@ -1,5 +1,9 @@
 import * as yup from "yup";
-import { ICreateUserBody, ICreateUserResponse } from "../../interfaces/users";
+import {
+  ICreateUserBody,
+  ICreateUserResponse,
+  IPatchUserBody,
+} from "../../interfaces/users";
 
 export const createUserBodySchema: yup.Schema<ICreateUserBody> = yup
   .object()
@@ -24,3 +28,13 @@ export const createUserResponseSchema: yup.Schema<ICreateUserResponse> = yup
 
 export const usersArraySchema: yup.Schema<ICreateUserResponse[] | undefined> =
   yup.array(createUserResponseSchema);
+
+export const PatchUserBodySchema: yup.Schema<IPatchUserBody> = yup
+  .object()
+  .shape({
+    first_name: yup.string().max(127),
+    last_name: yup.string().max(127),
+    email: yup.string().email().max(127),
+    password: yup.string().max(150),
+    phone: yup.string().min(11).max(11),
+  });

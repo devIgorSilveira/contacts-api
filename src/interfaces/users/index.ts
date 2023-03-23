@@ -27,3 +27,11 @@ export interface ILoginResponse {
 export interface IUserInRequest {
   id: string | undefined;
 }
+
+export interface IPatchUserBody {
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  password?: string | undefined;
+  phone?: string | undefined;
+}
