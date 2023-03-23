@@ -16,3 +16,12 @@ export interface IContactResponse {
   createdAt: Date;
   user: ICreateUserResponse;
 }
+
+export interface IContactWithoutUserResponse {
+  id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone: string;
+  createdAt: Date;
+}

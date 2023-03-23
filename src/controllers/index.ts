@@ -1,4 +1,5 @@
 import { createContactController } from "./contacts/createContact.controller";
+import { listAllContactsOfAUserController } from "./contacts/listAllContactsOfAUser.controller";
 import { createSessionController } from "./sessions/createSession.controller";
 import { createUserController } from "./users/createUser.controller";
 import { deleteUserController } from "./users/deleteUser.controller";
@@ -14,4 +15,5 @@ export {
   patchUserController,
   deleteUserController,
   createContactController,
+  listAllContactsOfAUserController,
 };

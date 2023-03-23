@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { createContactController } from "../controllers";
+import {
+  createContactController,
+  listAllContactsOfAUserController,
+} from "../controllers";
 import {
   validateBodyPerSchemaMiddleware,
   verifyAuthMiddleware,
@@ -14,3 +17,5 @@ contactRouter.post(
   validateBodyPerSchemaMiddleware(createContactBodySchema),
   createContactController
 );
+
+contactRouter.get("", verifyAuthMiddleware, listAllContactsOfAUserController);
