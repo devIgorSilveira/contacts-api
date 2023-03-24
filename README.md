@@ -50,6 +50,23 @@ Versão do node => v18.12.1
     }
   ```
 
+  - **GET** - /users/profile - Rota para recuperar todos os dados do usuário logado.
+
+  ```
+  Precisa de autenticação
+
+  body => Não possui body.
+
+  response - 200 => {
+          "id": "d1f57dff-d579-474d-9bea-86e626fb66fc",
+          "first_name": "User",
+          "last_name": "Name",
+          "email": "user@mail.com",
+          "phone": "99999999999",
+          "createdAt": "2023-03-23T02:26:44.915Z"
+        }
+  ```
+
   - **GET** - /users - Rota para recuperar todos os usuários
 
   ```

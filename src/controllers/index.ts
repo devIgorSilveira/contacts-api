@@ -7,6 +7,7 @@ import { createSessionController } from "./sessions/createSession.controller";
 import { createUserController } from "./users/createUser.controller";
 import { deleteUserController } from "./users/deleteUser.controller";
 import { getUserByIdController } from "./users/getUserById.controller";
+import { getUserProfileController } from "./users/getUserProfile.controller";
 import { listAllUsersController } from "./users/listAllUsers.controller";
 import { patchUserController } from "./users/patchUser.contoller";
 
@@ -22,4 +23,5 @@ export {
   getContactByIdController,
   patchContactController,
   deleteContactController,
+  getUserProfileController,
 };
