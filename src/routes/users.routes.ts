@@ -3,6 +3,7 @@ import {
   createUserController,
   deleteUserController,
   getUserByIdController,
+  getUserProfileController,
   listAllUsersController,
   patchUserController,
 } from "../controllers";
@@ -22,6 +23,8 @@ usersRouter.post(
 );
 
 usersRouter.get("", verifyAuthMiddleware, listAllUsersController);
+
+usersRouter.get("/profile", verifyAuthMiddleware, getUserProfileController);
 
 usersRouter.get(
   "/:id",
